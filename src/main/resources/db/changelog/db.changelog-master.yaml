@@ -96,13 +96,3 @@ databaseChangeLog:
               schemaName: public
               sequenceName: hibernate_sequence
               startValue: 2
-  - changeSet:
-      id: 2
-      author: tpereira
-      changes:
-        - insert:
-            tableName: category
-            columns:
-              - column:
-                  name: name
-                  value: HABITACAO
