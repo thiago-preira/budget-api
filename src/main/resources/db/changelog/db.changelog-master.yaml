@@ -1,0 +1,98 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: tpereira
+      changes:
+        - createTable:
+            tableName: tag
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+        - createTable:
+                    tableName: category
+                    columns:
+                      - column:
+                          name: id
+                          type: bigint
+                          autoIncrement: true
+                          constraints:
+                            primaryKey: true
+                            nullable: false
+                      - column:
+                          name: name
+                          type: varchar(255)
+                          constraints:
+                            nullable: false
+        - createTable:
+                    tableName: transaction
+                    columns:
+                      - column:
+                          name: id
+                          type: bigint
+                          autoIncrement: true
+                          constraints:
+                            primaryKey: true
+                            nullable: false
+                      - column:
+                          name: description
+                          type: varchar(255)
+                          constraints:
+                            nullable: false
+                      - column:
+                          name: date
+                          type: date
+                          constraints:
+                            nullable: false
+                      - column:
+                          name: amount
+                          type: decimal
+                          constraints:
+                            nullable: false
+                      - column:
+                          name: tag_id
+                          type: bigint
+                          constraints:
+                            nullable: false
+                      - column:
+                          name: transaction_type
+                          type: varchar(255)
+                          constraints:
+                            nullable: false
+        - addForeignKeyConstraint:
+              baseColumnNames: category_id
+              baseTableName: tag
+              constraintName: fk_tag_category
+              onDelete: CASCADE
+              onUpdate: RESTRICT
+              referencedColumnNames: id
+              referencedTableName: category
+        - addForeignKeyConstraint:
+              baseColumnNames: tag_id
+              baseTableName: transaction
+              constraintName: fk_transaction_tag
+              onDelete: CASCADE
+              onUpdate: RESTRICT
+              referencedColumnNames: id
+              referencedTableName: tag
+        - createSequence:
+              cycle: true
+              incrementBy: 1
+              ordered: true
+              schemaName: public
+              sequenceName: hibernate_sequence
+              startValue: 2
