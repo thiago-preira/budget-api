@@ -89,10 +89,24 @@ databaseChangeLog:
               onUpdate: RESTRICT
               referencedColumnNames: id
               referencedTableName: tag
-        - createSequence:
-              cycle: true
+        - addAutoIncrement:
+              columnDataType: bigint
+              columnName: id
               incrementBy: 1
-              ordered: true
               schemaName: public
-              sequenceName: hibernate_sequence
-              startValue: 2
+              startWith: 1
+              tableName: category
+        - addAutoIncrement:
+              columnDataType: bigint
+              columnName: id
+              incrementBy: 1
+              schemaName: public
+              startWith: 1
+              tableName: tag
+        - addAutoIncrement:
+              columnDataType: bigint
+              columnName: id
+              incrementBy: 1
+              schemaName: public
+              startWith: 1
+              tableName: transaction
