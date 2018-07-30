@@ -77,8 +77,8 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
           <profiles>
-            <profile>mysql</profile>
             <profile>default</profile>
+            <profile>mysql</profile>
           </profiles>
         </configuration>
       </plugin>
