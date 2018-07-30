@@ -79,6 +79,7 @@
           <profiles>
             <profile>default</profile>
             <profile>mysql</profile>
+            <profile>heroku</profile>
           </profiles>
         </configuration>
       </plugin>
