@@ -89,24 +89,3 @@ databaseChangeLog:
               onUpdate: RESTRICT
               referencedColumnNames: id
               referencedTableName: tag
-        - addAutoIncrement:
-              columnDataType: bigint
-              columnName: id
-              incrementBy: 1
-              schemaName: public
-              startWith: 1
-              tableName: category
-        - addAutoIncrement:
-              columnDataType: bigint
-              columnName: id
-              incrementBy: 1
-              schemaName: public
-              startWith: 1
-              tableName: tag
-        - addAutoIncrement:
-              columnDataType: bigint
-              columnName: id
-              incrementBy: 1
-              schemaName: public
-              startWith: 1
-              tableName: transaction
