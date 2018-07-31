@@ -75,13 +75,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <profiles>
-            <profile>default</profile>
-            <profile>mysql</profile>
-            <profile>heroku</profile>
-          </profiles>
-        </configuration>
       </plugin>
     </plugins>
   </build>
