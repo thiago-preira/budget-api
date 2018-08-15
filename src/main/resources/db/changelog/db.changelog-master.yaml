@@ -1,94 +1,106 @@
+---
 databaseChangeLog:
-  - changeSet:
-      id: 1
-      author: tpereira
-      changes:
-        - createTable:
-            tableName: tag
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  startWith: 1
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: category_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-        - createTable:
-                    tableName: category
-                    columns:
-                      - column:
-                          name: id
-                          type: bigint
-                          autoIncrement: true
-                          startWith: 1
-                          constraints:
-                            primaryKey: true
-                            nullable: false
-                      - column:
-                          name: name
-                          type: varchar(255)
-                          constraints:
-                            nullable: false
-        - createTable:
-                    tableName: transaction
-                    columns:
-                      - column:
-                          name: id
-                          type: bigint
-                          autoIncrement: true
-                          startWith: 1
-                          constraints:
-                            primaryKey: true
-                            nullable: false
-                      - column:
-                          name: description
-                          type: varchar(255)
-                          constraints:
-                            nullable: false
-                      - column:
-                          name: date
-                          type: date
-                          constraints:
-                            nullable: false
-                      - column:
-                          name: amount
-                          type: decimal
-                          constraints:
-                            nullable: false
-                      - column:
-                          name: tag_id
-                          type: bigint
-                          constraints:
-                            nullable: false
-                      - column:
-                          name: transaction_type
-                          type: varchar(255)
-                          constraints:
-                            nullable: false
-        - addForeignKeyConstraint:
-              baseColumnNames: category_id
-              baseTableName: tag
-              constraintName: fk_tag_category
-              onDelete: CASCADE
-              onUpdate: RESTRICT
-              referencedColumnNames: id
-              referencedTableName: category
-        - addForeignKeyConstraint:
-              baseColumnNames: tag_id
-              baseTableName: transaction
-              constraintName: fk_transaction_tag
-              onDelete: CASCADE
-              onUpdate: RESTRICT
-              referencedColumnNames: id
-              referencedTableName: tag
+- changeSet:
+    author: tpereira
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            startWith: 1
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: category_id
+            type: bigint
+        tableName: tag
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            startWith: 1
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: varchar(255)
+        tableName: category
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            startWith: 1
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: description
+            type: varchar(255)
+        - column:
+            constraints:
+              nullable: false
+            name: date
+            type: date
+        - column:
+            constraints:
+              nullable: false
+            name: amount
+            type: decimal
+        - column:
+            constraints:
+              nullable: false
+            name: tag_id
+            type: bigint
+        - column:
+            constraints:
+              nullable: false
+            name: transaction_type
+            type: varchar(255)
+        tableName: transaction
+    - addForeignKeyConstraint:
+        baseColumnNames: category_id
+        baseTableName: tag
+        constraintName: fk_tag_category
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: category
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: transaction
+        constraintName: fk_transaction_tag
+        onDelete: CASCADE
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: tag
+    id: 1
+- changeSet:
+    author: tpereira
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: icon
+            type: varchar(255)
+        schemaName: public
+        tableName: category
+    id: 2

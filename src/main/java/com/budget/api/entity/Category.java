@@ -27,6 +27,8 @@ public class Category {
 
   private String name;
 
+  private String icon;
+
   @JsonManagedReference
   @OneToMany(mappedBy = "category")
   private List<Tag> tags;
