@@ -1,7 +1,5 @@
 package com.budget.api.service;
 
-import static com.budget.api.utils.DateUtils.asDate;
-
 import com.budget.api.entity.Transaction;
 import com.budget.api.exceptions.ResourceNotFoundException;
 import com.budget.api.repository.TransactionsRepository;
@@ -24,8 +22,8 @@ public class TransactionsService {
 
   public List<Transaction> findAllByDate(Optional<LocalDate> start, Optional<LocalDate> end) {
     return transactionsRepository.findAllByDateBetween(
-        asDate(start.orElse(LocalDate.now().withDayOfMonth(1))),
-        asDate(end.orElse(LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth()))));
+        start.orElse(LocalDate.now().withDayOfMonth(1)),
+        end.orElse(LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth())));
   }
 
   public Transaction save(Transaction transaction) {

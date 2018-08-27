@@ -2,6 +2,7 @@ package com.budget.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,8 +35,7 @@ public class Transaction {
 
   @NotNull
   @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
-  @Temporal(TemporalType.DATE)
-  private Date date;
+  private LocalDate date;
 
   @NotNull
   @DecimalMin(value = "0.1")
