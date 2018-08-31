@@ -9,10 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class Tag {
 
@@ -21,11 +27,13 @@ public class Tag {
   private Long id;
 
   @NotNull
+  @NonNull
   private String name;
 
   @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "category_id")
+  @NonNull
   private Category category;
 
 }

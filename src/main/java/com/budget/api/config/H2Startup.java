@@ -65,30 +65,51 @@ public class H2Startup  implements InitializingBean {
     category7.setIcon("beach_access");
     categoriesRepository.save(category7);
 
-    Tag tag = new Tag();
-    tag.setName("LUZ");
-    tag.setCategory(category);
-    tagsRepository.save(tag);
+    tagsRepository.save(new Tag("LUZ",category));
+    tagsRepository.save( new Tag("TELEFONE",category));
+    tagsRepository.save( new Tag("ALUGUEL",category));
+    tagsRepository.save( new Tag("INTERNET",category));
+    tagsRepository.save( new Tag("MERCADO",category));
+    tagsRepository.save( new Tag("ALUGUEL",category));
+    tagsRepository.save( new Tag("TV",category));
 
-    Tag tag1 = new Tag();
-    tag1.setName("TELEFONE");
-    tag1.setCategory(category);
-    tagsRepository.save(tag1);
+    tagsRepository.save( new Tag("MEDICAMENTOS",category1));
+    tagsRepository.save( new Tag("CONSULTA",category1));
+    tagsRepository.save( new Tag("TRATAMENTOS",category1));
 
-    Tag tag2 = new Tag();
-    tag2.setName("ALUGUEL");
-    tag2.setCategory(category);
-    tagsRepository.save(tag2);
+    tagsRepository.save( new Tag("ESTACIONAMENTOS",category2));
+    tagsRepository.save( new Tag("ALUGUEL DE VEICULO",category2));
+    tagsRepository.save( new Tag("SEGURO",category2));
+    tagsRepository.save( new Tag("COMBUSTIVEL",category2));
+    tagsRepository.save( new Tag("ONIBUS",category2));
+    tagsRepository.save( new Tag("TAXI",category2));
+    tagsRepository.save( new Tag("LAVAGEM",category2));
 
-    Tag tag3 = new Tag();
-    tag3.setName("INTERNET");
-    tag3.setCategory(category);
-    tagsRepository.save(tag3);
+    tagsRepository.save( new Tag("CORTE DE CABELO",category3));
+    tagsRepository.save( new Tag("VESTUÁRIO",category3));
+    tagsRepository.save( new Tag("ACADEMIA",category3));
+    tagsRepository.save( new Tag("MESADA",category3));
 
-    Tag tag4 = new Tag();
-    tag4.setName("MERCADO");
-    tag4.setCategory(category);
-    tagsRepository.save(tag4);
+
+    tagsRepository.save( new Tag("CURSOS",category4));
+
+    tagsRepository.save( new Tag("RESTAURANTES",category7));
+    tagsRepository.save( new Tag("BAR",category7));
+    tagsRepository.save( new Tag("VIAGEM",category7));
+    tagsRepository.save( new Tag("PASSEIO",category7));
+
+    tagsRepository.save( new Tag("TARIFAS DE BANCO",category5));
+    tagsRepository.save( new Tag("DOAÇÕES",category5));
+
+    tagsRepository.save( new Tag("SALARIO",category6));
+    tagsRepository.save( new Tag("REVENUE",category6));
+
+
+
+
+
+
+
 
   }
 }
